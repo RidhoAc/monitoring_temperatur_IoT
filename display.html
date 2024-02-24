@@ -1,0 +1,105 @@
+<html>
+
+
+<head>
+	<meta charset="UTF-8">
+    <style>
+        #header {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #temperature_div {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #image {
+            width: 400px;
+            height: 400px;
+            display: block;
+            margin: 0 auto;
+			position: absolute;
+		    top: 56%; 
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+
+        }
+
+		.range-bar {
+		  width: 400px;
+		  height: 20px;
+		  background: linear-gradient(to right, blue, green, yellow, red);
+		  margin: 0 auto;
+		}
+		
+		#image-frame {
+		  width: 430px;
+		  height: 430px;
+		  display: block;
+		  margin: 0 auto;
+		  background-color: black;
+		}
+
+		.range-bar-frame {
+		  width: 430px;
+		  height: 50px;
+		  display: block;
+		  margin: 0 auto;
+		  background-color: black;
+		}
+		
+		.range-bar-label {
+		  display: flex;
+		  justify-content: space-between;
+		  margin-top: 10px;
+		  font-size: 18px;
+		  text-align: center;
+		  color: white;
+		}
+		
+		.plus-sign {
+		position: absolute;
+		top: 56%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 50px;
+		font-weight: bold;
+		color: white;
+		text-shadow: 2px 2px black;
+		}
+    </style>
+    <script src="temperature.js"></script>
+</head>
+<body>
+    <div id="header">MONITORING REALTIME TEMPERATURE MESIN</div>
+	<br>
+	<br>
+    <div id="temperature_div">SUHU: <span id="temperature"></span>°C</div>
+	<br>
+	<br>
+	<div id="image-frame">
+		<img id="image" />
+		<div class="plus-sign">+</div>
+	</div>
+	<div class="range-bar-frame">
+		<div class="range-bar"></div>
+		<div class="range-bar-label">&nbsp;&nbsp;26 °C&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39,5 °C&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;53 °C&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66,5 °C&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80 °C</div>
+	</div>
+  <script>
+  
+    // Get the temperature image
+    let temperatureImg = document.getElementById("temperature-img");
+
+    // Set the range bar width based on the temperature value
+    let rangeBar = document.querySelector(".range-bar");
+    //let temperature = getTemperatureValue(); // Replace with a function that retrieves the temperature value from the server
+    let temperatureRange =80-26;
+    let rangeBarWidth = 90;
+    rangeBar.style.width = `${rangeBarWidth}%`;
+  </script>
+  <a href="../index.php"><button style='background-color: blue; color: white'>Kembali</button></a>
+</body>
+</html>
